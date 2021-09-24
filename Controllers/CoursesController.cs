@@ -13,5 +13,7 @@ namespace KampsProg.Controllers
         {
             return Content($"Sono Detail, ho ricevuto l'id {id}");
         }
+
+        public IActionResult Search(string title) => Content($"hai cercato {title}");
     }
 }
