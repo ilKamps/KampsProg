@@ -8,7 +8,7 @@ namespace KampsProg
     {
         public static void Main(string[] args)
         {   
-            string firstargument = args.FirstOrDefault();
+            string firstArgument = args.FirstOrDefault();
             CreateWebHostBuilder(args).Build().Run();
         }
 

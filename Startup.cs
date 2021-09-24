@@ -11,6 +11,7 @@ namespace KampsProg
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,10 +30,11 @@ namespace KampsProg
 
             app.UseStaticFiles();
 
-            app.Run(async (context) =>
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routeBuilder =>
             {
-                string nome = context.Request.Query["nome"];
-                await context.Response.WriteAsync($"Hello {nome}!");
+                // /courses/detail/5
+                routeBuilder.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
